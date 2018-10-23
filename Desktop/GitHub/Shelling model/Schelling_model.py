@@ -5,12 +5,10 @@ Created on Fri Jun 2nd 09:23:42 2017
 @author: Driss Debbagh Nour
 """
 
-from random import *
+from random import randint
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-from networkx import *
-from pylab import *
 from matplotlib import colors
 
 
@@ -264,7 +262,7 @@ def simulation(size_population, nbr_remove, number_add, stop_satisfaction, stop_
             data = matrix_model
             plt.figure(i)
             cmap = colors.ListedColormap(['black','white','red'])
-            imshow(data, interpolation='nearest',cmap=cmap)
+            plt.imshow(data, interpolation='nearest',cmap=cmap)
             red_patch = mpatches.Patch(color='red', label='Population A')
             black_patch = mpatches.Patch(color='black', label='Population B')
             white_patch = mpatches.Patch(color='white', label='Vacant homes')
@@ -279,14 +277,14 @@ def simulation(size_population, nbr_remove, number_add, stop_satisfaction, stop_
             data = matrix_model
             plt.figure(1)
             cmap = colors.ListedColormap(['black','white','red'])
-            imshow(data, interpolation='nearest',cmap=cmap)
+            plt.imshow(data, interpolation='nearest',cmap=cmap)
             red_patch = mpatches.Patch(color='red', label='Population A')
             black_patch = mpatches.Patch(color='black', label='Population B')
             white_patch = mpatches.Patch(color='white', label='Vacant homes')
             plt.legend(handles=[white_patch,red_patch,black_patch])
             plt.show()
             plt.figure(2)
-            plt.pcolor(flipud(data))
+            plt.pcolor(np.flipud(data))
             print("Convergence after: ", i + 1, " iterations")
             return matrix_model
         else:
