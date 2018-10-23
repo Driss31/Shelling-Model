@@ -19,7 +19,7 @@ number of same color skin neighbors
 4. We move unsatisfied citizens to empty space where they can be satisfied
 
 
-## *Process*
+## **Process**
 
 1. We create a matrix containing 1 and -1 alternately distributed.
 2. We randomly remove a number (r) of '1' and '-1'. Replace them by 0 in the matrix
