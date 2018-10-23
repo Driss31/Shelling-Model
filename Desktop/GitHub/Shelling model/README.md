@@ -1,10 +1,10 @@
-*Description*
+# _*Description*_
 
 Model of racial segregation: Shelling's model.
 It shows that relatively mild preference for neighbors of similar race can lead to the collapse of mixed neighborhoods,
 and high levels of segregation
 
-Script' stages:
+## **Script' stages:**
 
 1. We start from a perfectly mixed neighborhood
 2. We disturb this perfect distribution :
@@ -19,7 +19,7 @@ number of same color skin neighbors
 4. We move unsatisfied citizens to empty space where they can be satisfied
 
 
-*Process*
+## *Process*
 
 1. We create a matrix containing 1 and -1 alternately distributed.
 2. We randomly remove a number (r) of '1' and '-1'. Replace them by 0 in the matrix
