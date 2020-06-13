@@ -14,7 +14,6 @@ def perfect_distribution(matrix_size):
     last_row = [2]  # Last row of the matrix
     middle_row_1 = []
     middle_row_2 = []
-
     #  Add alternately 1 and -1 in rows
     # First and last rows
     one_or_minus_one = 1
