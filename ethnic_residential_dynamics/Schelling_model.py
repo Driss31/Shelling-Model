@@ -1,9 +1,10 @@
 """Code made 2 years ago. To update."""
 from random import randint
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
+
 from matplotlib import colors
+import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def perfect_distribution(matrix_size):
@@ -343,5 +344,5 @@ p = 15
 alpha = 3
 beta = 6
 
-matrix_solution = simulation(n, m, p, alpha, beta)
-print(matrix_solution)
+# matrix_solution = simulation(n, m, p, alpha, beta)
+# print(matrix_solution)

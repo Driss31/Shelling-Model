@@ -7,7 +7,7 @@ branch = True
 concurrency=thread,multiprocessing
 
 # The source to measure during execution
-source = routing_engine
+source = ethnic_residential_dynamics
 
 # Files to leave out of measurement or reporting
 omit = tests/*
