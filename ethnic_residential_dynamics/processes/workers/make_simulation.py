@@ -62,11 +62,11 @@ p = 15
 alpha = 3
 beta = 6
 
-# #matrix_solution = simulation(
-# #    args=get_command_line_parser().parse_args(),
-# #    size_population=n,
-# #    count_remove=m,
-# #    count_add=p,
+# matrix_solution = simulation(
+#     args=get_command_line_parser().parse_args(),
+#     size_population=n,
+#     count_remove=m,
+#     count_add=p,
 #     stop_satisfaction=alpha,
 #     stop_recursive=beta,
 # )
