@@ -1,15 +1,25 @@
 """Function to find unsatisfied citizens."""
 from random import randint
-from ethnic_residential_dynamics.utils.neighbors_type import count_same_color_neighbors, count_neighbors, most_suited_citizen
+
 import numpy as np
 
+from ethnic_residential_dynamics.utils.neighbors_type import (
+    count_neighbors,
+    count_same_color_neighbors,
+    most_suited_citizen,
+)
 
-def _check_satisfied_neighborhood(recursive_counter: int, stop_recursive: int, matrix_size: int) -> bool:
+
+def _check_satisfied_neighborhood(
+    recursive_counter: int, stop_recursive: int, matrix_size: int
+) -> bool:
     """Check if there are still unsatisfied citizen."""
     return recursive_counter >= stop_recursive * (matrix_size ** 2)
 
 
-def get_unsatisfied(matrix_model: np.ndarray, recursive_counter: int, stop_recursive: int):
+def get_unsatisfied(
+    matrix_model: np.ndarray, recursive_counter: int, stop_recursive: int
+):
     """Recursive function that randomly looks for an unsatisfied citizen and returns its coordinates.
 
     Note:
@@ -17,8 +27,11 @@ def get_unsatisfied(matrix_model: np.ndarray, recursive_counter: int, stop_recur
         we consider that all citizens are satisfied.
     """
     matrix_size = len(matrix_model)
-    while not _check_satisfied_neighborhood(recursive_counter=recursive_counter, stop_recursive=stop_recursive,
-                                            matrix_size=matrix_size):
+    while not _check_satisfied_neighborhood(
+        recursive_counter=recursive_counter,
+        stop_recursive=stop_recursive,
+        matrix_size=matrix_size,
+    ):
 
         i = randint(0, matrix_size - 1)
         j = randint(0, matrix_size - 1)
@@ -52,7 +65,10 @@ def move_to_satisfaction(matrix_model, list_empty_index, i, j):
     """Move an unsatisfied citizen to a house where he can be satisfied if found."""
     if matrix_model[i][j] == 1:
         for indexes in list_empty_index:
-            if most_suited_citizen(matrix=matrix_model, i=indexes[0], j=indexes[1]) >= 0:
+            if (
+                most_suited_citizen(matrix=matrix_model, i=indexes[0], j=indexes[1])
+                >= 0
+            ):
                 matrix_model[indexes[0]][indexes[1]] = 1  # new place in the matrix
                 matrix_model[i][j] = 0  # old place in the matrix
                 list_empty_index.remove(indexes)

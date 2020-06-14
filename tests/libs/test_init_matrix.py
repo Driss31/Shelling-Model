@@ -1,4 +1,4 @@
-"""Tests for matrix initialization"""
+"""Tests for matrix initialization."""
 import numpy as np
 from numpy.testing import assert_equal
 

@@ -1,16 +1,19 @@
 """Worker to make simulations."""
-import numpy as np
 from argparse import Namespace
 
-from ethnic_residential_dynamics.libs.init_matrix import perfect_distribution
-from ethnic_residential_dynamics.utils.unbalance_matrix import (
-    remove_citizen,
-    add_citizens,
-)
-from ethnic_residential_dynamics.utils.parser import get_command_line_parser
-from ethnic_residential_dynamics.utils.plot_matrix import plot_citizen_matrix
+import numpy as np
 
-from ethnic_residential_dynamics.libs.satisfaction import get_unsatisfied, move_to_satisfaction
+# from ethnic_residential_dynamics.utils.parser import get_command_line_parser
+from ethnic_residential_dynamics.libs.init_matrix import perfect_distribution
+from ethnic_residential_dynamics.libs.satisfaction import (
+    get_unsatisfied,
+    move_to_satisfaction,
+)
+from ethnic_residential_dynamics.utils.plot_matrix import plot_citizen_matrix
+from ethnic_residential_dynamics.utils.unbalance_matrix import (
+    add_citizens,
+    remove_citizen,
+)
 
 
 def simulation(

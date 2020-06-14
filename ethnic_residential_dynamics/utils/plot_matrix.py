@@ -1,9 +1,10 @@
 """Function to plot a matrix of 1 and -1."""
+from argparse import Namespace
+
 from matplotlib import colors
 import matplotlib.patches as mpatches
-import numpy as np
 import matplotlib.pyplot as plt
-from argparse import Namespace
+import numpy as np
 
 COLORS_LABEL = {
     "black": "Population A",

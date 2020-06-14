@@ -20,11 +20,7 @@ def count_neighbors(matrix: np.ndarray, i: int, j: int) -> int:
         nbr_neighbors += 1
     if i <= size_mat - 2 and matrix[i + 1][j] not in [0, 2]:
         nbr_neighbors += 1
-    if (
-        i <= size_mat - 2
-        and j <= size_mat - 2
-        and matrix[i + 1][j + 1] not in [0, 2]
-    ):
+    if i <= size_mat - 2 and j <= size_mat - 2 and matrix[i + 1][j + 1] not in [0, 2]:
         nbr_neighbors += 1
 
     return nbr_neighbors
@@ -34,37 +30,19 @@ def count_same_color_neighbors(matrix: np.ndarray, i: int, j: int) -> int:
     """Returns the number of neighbors that have the same color skin."""
     same_color = 0
     size_dist_mat = len(matrix)
-    if (
-        i >= 1
-        and j >= 1
-        and matrix[i - 1][j - 1] == matrix[i][j]
-    ):
+    if i >= 1 and j >= 1 and matrix[i - 1][j - 1] == matrix[i][j]:
         same_color += 1
     if i >= 1 and matrix[i - 1][j] == matrix[i][j]:
         same_color += 1
-    if (
-        i >= 1
-        and j <= size_dist_mat - 2
-        and matrix[i - 1][j + 1] == matrix[i][j]
-    ):
+    if i >= 1 and j <= size_dist_mat - 2 and matrix[i - 1][j + 1] == matrix[i][j]:
         same_color += 1
     if j >= 1 and matrix[i][j - 1] == matrix[i][j]:
         same_color += 1
-    if (
-        j <= size_dist_mat - 2
-        and matrix[i][j + 1] == matrix[i][j]
-    ):
+    if j <= size_dist_mat - 2 and matrix[i][j + 1] == matrix[i][j]:
         same_color += 1
-    if (
-        i <= size_dist_mat - 2
-        and j >= 1
-        and matrix[i + 1][j - 1] == matrix[i][j]
-    ):
+    if i <= size_dist_mat - 2 and j >= 1 and matrix[i + 1][j - 1] == matrix[i][j]:
         same_color += 1
-    if (
-        i <= size_dist_mat - 2
-        and matrix[i + 1][j] == matrix[i][j]
-    ):
+    if i <= size_dist_mat - 2 and matrix[i + 1][j] == matrix[i][j]:
         same_color += 1
     if (
         i <= size_dist_mat - 2
