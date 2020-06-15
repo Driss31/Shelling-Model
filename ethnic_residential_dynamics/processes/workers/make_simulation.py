@@ -1,5 +1,6 @@
 """Worker to make simulations."""
 from argparse import Namespace
+from typing import Optional
 
 import numpy as np
 
@@ -23,7 +24,7 @@ def simulation(
     count_add: int,
     stop_satisfaction: int,
     stop_recursive: int,
-):
+) -> Optional[bool]:
     """Plot neighborhood and check the convergence."""
     matrix_model = perfect_distribution(matrix_size=size_population)
     matrix_model = remove_citizen(matrix=matrix_model, count_remove=count_remove)
@@ -46,7 +47,7 @@ def simulation(
         if unsatisfied_individual[0] == "Converge":
             plot_citizen_matrix(args=args, matrix=matrix_model, index=epoch)
             print("Convergence after: ", epoch + 1, " iterations")
-            return matrix_model
+            return True
         else:
             matrix_model = move_to_satisfaction(
                 matrix_model,
@@ -55,13 +56,13 @@ def simulation(
                 unsatisfied_individual[1],
             )
 
-    return "No convergence", matrix_model
+    print("No convergence", matrix_model)
 
 
 # Simulation
-n = 10
-m = 40
-p = 15
+n = 15
+m = 60
+p = 30
 alpha = 3
 beta = 6
 

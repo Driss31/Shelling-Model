@@ -3,10 +3,10 @@ from random import randint
 
 import numpy as np
 
+from ethnic_residential_dynamics.libs.fit import most_suited_citizen
 from ethnic_residential_dynamics.utils.neighbors_type import (
     count_neighbors,
     count_same_color_neighbors,
-    most_suited_citizen,
 )
 
 
