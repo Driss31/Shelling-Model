@@ -23,6 +23,9 @@ jobs:
           name: Install dependencies via poetry
           command: sudo poetry install --no-interaction --no-ansi
       - run:
+          name: File for tests
+          command: mkdir plots/tests
+      - run:
           name: Run tests
           command: sudo poetry run make ci-test
       # Update coverage score.

@@ -8,14 +8,9 @@ I implemented the [Schelling Model of Ethnic Residential Dynamics.](http://jasss
 
 The model was introduced by Thomas Schelling to illustrate how individual incentives and individual perceptions of difference can lead collectively to segregation.
 
+It shows that relatively **mild preference** for neighbors of similar race can lead to the collapse of mixed neighborhoods, and high levels of segregation
 
-### _*Description*_
-
-Model of racial segregation: Shelling's model.
-It shows that relatively **mild preference** for neighbors of similar race can lead to the collapse of mixed neighborhoods,
-and high levels of segregation
-
-### **Script' stages:**
+### Script' stages:
 
 1. Start from a perfectly mixed neighborhood
 2. Disturb this perfect distribution :
@@ -32,7 +27,7 @@ number of same color skin neighbors
 4. Move unsatisfied citizens to empty space where they can be satisfied
 
 
-### **Process**
+### Process
 
 1. Create a matrix containing 1 and -1 alternately distributed.
 2. Randomly remove a number (r) of '1' and '-1'. Replace them by 0 in the matrix
