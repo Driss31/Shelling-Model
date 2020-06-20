@@ -7,13 +7,13 @@ from ethnic_residential_dynamics.utils.parser import get_command_line_parser
 PNG = "png"
 
 
-def test_simulation():
+def test_simulation(tmp_path):
     """Should save graphs in plots/tests."""
     parser = get_command_line_parser()
     parsed = parser.parse_args(
         [
             "--plots_path",
-            "plots/tests",
+            str(tmp_path),
             "--size_population",
             "10",
             "--count_remove",
