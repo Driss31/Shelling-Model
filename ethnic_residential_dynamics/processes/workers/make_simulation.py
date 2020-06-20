@@ -4,12 +4,12 @@ from typing import Optional
 
 import numpy as np
 
-# from ethnic_residential_dynamics.utils.parser import get_command_line_parser
 from ethnic_residential_dynamics.libs.init_matrix import perfect_distribution
 from ethnic_residential_dynamics.libs.satisfaction import (
     get_unsatisfied,
     move_to_satisfaction,
 )
+from ethnic_residential_dynamics.utils.parser import get_command_line_parser
 from ethnic_residential_dynamics.utils.plot_matrix import plot_citizen_matrix
 from ethnic_residential_dynamics.utils.unbalance_matrix import (
     add_citizens,
@@ -17,21 +17,17 @@ from ethnic_residential_dynamics.utils.unbalance_matrix import (
 )
 
 
-def simulation(
-    args: Namespace,
-    size_population: int,
-    count_remove: int,
-    count_add: int,
-    stop_satisfaction: int,
-    stop_recursive: int,
-) -> Optional[bool]:
+def simulation(args: Namespace,) -> Optional[bool]:
     """Plot neighborhood and check the convergence."""
-    matrix_model = perfect_distribution(matrix_size=size_population)
-    matrix_model = remove_citizen(matrix=matrix_model, count_remove=count_remove)
-    matrix_model = add_citizens(matrix=matrix_model, count_add=count_add)
+    print(args.size_population)
+    matrix_model = perfect_distribution(matrix_size=args.size_population)
+    print(args.count_remove)
+    matrix_model = remove_citizen(matrix=matrix_model, count_remove=args.count_remove)
+    print(args.count_add)
+    matrix_model = add_citizens(matrix=matrix_model, count_add=args.count_add)
     list_empty_spaces = np.argwhere(matrix_model == 0).tolist()
 
-    for epoch in range(stop_satisfaction * (size_population ** 2)):
+    for epoch in range(args.stop_satisfaction * (args.size_population ** 2)):
 
         # Plot neighborhood
         if (epoch % 4) == 0:
@@ -41,7 +37,7 @@ def simulation(
         unsatisfied_individual = get_unsatisfied(
             matrix_model=matrix_model,
             recursive_counter=0,
-            stop_recursive=stop_recursive,
+            stop_recursive=args.stop_recursive,
         )
 
         if unsatisfied_individual[0] == "Converge":
@@ -59,18 +55,12 @@ def simulation(
     print("No convergence", matrix_model)
 
 
-# Simulation
-n = 15
-m = 60
-p = 30
-alpha = 3
-beta = 6
+if __name__ == "__main__":
+    simulation(args=get_command_line_parser().parse_args())
 
-# matrix_solution = simulation(
-#     args=get_command_line_parser().parse_args(),
-#     size_population=n,
-#     count_remove=m,
-#     count_add=p,
-#     stop_satisfaction=alpha,
-#     stop_recursive=beta,
-# )
+# Simulation
+# n = 15
+# m = 60
+# p = 30
+# alpha = 3
+# beta = 6
