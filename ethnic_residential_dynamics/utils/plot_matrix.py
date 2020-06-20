@@ -7,10 +7,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 COLORS_LABEL = {
-    "black": "Population A",
-    "blue": "Vacant houses",
-    "white": "Population B",
-    "red": "Edges",
+    "blue": "Population A",
+    "white": "Vacant houses",
+    "red": "Population B",
+    "black": "Edges",
 }
 FIGURE_NAME = "neighborhood"
 PLOT_LENGTH = 12

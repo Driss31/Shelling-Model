@@ -1,7 +1,7 @@
 #https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore
 
 .idea/
-
+.DS_Store
 
 # Unit test / coverage reports
 htmlcov/
@@ -15,4 +15,4 @@ coverage.xml
 __pycache__
 
 # plots
-plots/
+#plots/

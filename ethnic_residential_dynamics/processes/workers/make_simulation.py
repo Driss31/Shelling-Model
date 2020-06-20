@@ -20,15 +20,21 @@ from ethnic_residential_dynamics.utils.unbalance_matrix import (
 def simulation(args: Namespace,) -> Optional[bool]:
     """Plot neighborhood and check the convergence."""
     matrix_model = perfect_distribution(matrix_size=args.size_population)
+    plot_citizen_matrix(args=args, matrix=matrix_model, index=0)
+
     matrix_model = remove_citizen(matrix=matrix_model, count_remove=args.count_remove)
+    plot_citizen_matrix(args=args, matrix=matrix_model, index=1)
+
     matrix_model = add_citizens(matrix=matrix_model, count_add=args.count_add)
+    plot_citizen_matrix(args=args, matrix=matrix_model, index=2)
+
     list_empty_spaces = np.argwhere(matrix_model == 0).tolist()
 
-    for epoch in range(args.stop_satisfaction * (args.size_population ** 2)):
+    for epoch in range(2, args.stop_satisfaction * (args.size_population ** 2) + 2):
 
         # Plot neighborhood
-        if (epoch % 4) == 0:
-            plot_citizen_matrix(args=args, matrix=matrix_model, index=epoch)
+        if (epoch % 2) == 0:
+            plot_citizen_matrix(args=args, matrix=matrix_model, index=epoch + 1)
 
         # Find an unsatisfied citizen
         unsatisfied_individual = get_unsatisfied(
@@ -38,7 +44,7 @@ def simulation(args: Namespace,) -> Optional[bool]:
         )
 
         if unsatisfied_individual[0] == "Converge":
-            plot_citizen_matrix(args=args, matrix=matrix_model, index=epoch)
+            plot_citizen_matrix(args=args, matrix=matrix_model, index=epoch + 1)
             print("Convergence after: ", epoch + 1, " iterations")
             return True
         else:

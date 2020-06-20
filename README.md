@@ -37,3 +37,15 @@ number of same color skin neighbors
 6. Look for an empty space where it can be satisfied
 7. Put a '1' or '-1' (depending or 5.) where there is a '0' (depending on 6.) and a '0' where there was that '1'
 or '-1'
+
+
+### Simulation
+
+I ran the simulation using the following command:
+```
+python -m ethnic_residential_dynamics.processes.workers.make_simulation --plots_path plots --size_population 10 --count_remove 30 --count_add 10 --stop_satisfaction 3 --stop_recursive 6
+```
+
+Here are the results:
+
+![](plots/gif/simulation.gif)
