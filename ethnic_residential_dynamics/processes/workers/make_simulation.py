@@ -19,11 +19,8 @@ from ethnic_residential_dynamics.utils.unbalance_matrix import (
 
 def simulation(args: Namespace,) -> Optional[bool]:
     """Plot neighborhood and check the convergence."""
-    print(args.size_population)
     matrix_model = perfect_distribution(matrix_size=args.size_population)
-    print(args.count_remove)
     matrix_model = remove_citizen(matrix=matrix_model, count_remove=args.count_remove)
-    print(args.count_add)
     matrix_model = add_citizens(matrix=matrix_model, count_add=args.count_add)
     list_empty_spaces = np.argwhere(matrix_model == 0).tolist()
 
@@ -52,7 +49,7 @@ def simulation(args: Namespace,) -> Optional[bool]:
                 unsatisfied_individual[1],
             )
 
-    print("No convergence", matrix_model)
+    print("No convergence", matrix_model)  # pragma: no cover
 
 
 if __name__ == "__main__":
